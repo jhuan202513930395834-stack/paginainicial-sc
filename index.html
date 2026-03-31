@@ -1,1 +1,499 @@
 
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Castrillon Autopeças | Atacado de Peças Automotivas</title>
+    <!-- Bootstrap 5 CSS + Icons + Google Fonts -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Google Fonts para tipografia moderna -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #0a2b3e;
+            scroll-behavior: smooth;
+        }
+        /* cores personalizadas base: azul corporativo + vermelho/energia automotiva */
+        :root {
+            --primary-dark: #0b2b40;
+            --primary: #1c5d7a;
+            --accent-red: #d9322e;
+            --accent-gold: #e6b422;
+            --light-bg: #f4f9fe;
+            --gray-mid: #2c4b5e;
+        }
+        .bg-primary-custom {
+            background-color: var(--primary-dark);
+        }
+        .text-primary-custom {
+            color: var(--primary) !important;
+        }
+        .btn-accent {
+            background-color: var(--accent-red);
+            color: white;
+            border-radius: 40px;
+            padding: 10px 28px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        .btn-accent:hover {
+            background-color: #b81f1c;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(217, 50, 46, 0.25);
+            color: white;
+        }
+        .btn-outline-custom {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 40px;
+            padding: 8px 24px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+        .btn-outline-custom:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        .navbar {
+            background-color: white;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            padding: 0.8rem 0;
+        }
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.6rem;
+            letter-spacing: -0.5px;
+            color: var(--primary-dark) !important;
+        }
+        .navbar-brand span {
+            color: var(--accent-red);
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #f0f7fc 0%, #ffffff 100%);
+            padding: 80px 0 70px;
+            border-bottom: 1px solid rgba(28,93,122,0.1);
+        }
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            color: var(--primary-dark);
+        }
+        .hero-title span {
+            color: var(--accent-red);
+        }
+        .info-card {
+            background: white;
+            border-radius: 28px;
+            padding: 1.5rem;
+            height: 100%;
+            transition: all 0.25s ease;
+            border: 1px solid rgba(0,0,0,0.03);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+        }
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+            border-color: #e0edf2;
+        }
+        .icon-circle {
+            width: 64px;
+            height: 64px;
+            background: #eef4fa;
+            border-radius: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.2rem;
+        }
+        .icon-circle i {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+        .section-title {
+            font-weight: 800;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background: var(--accent-red);
+            border-radius: 4px;
+        }
+        .badge-cnpj {
+            background-color: #eef2f5;
+            padding: 6px 14px;
+            border-radius: 40px;
+            font-family: monospace;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+        .capital-highlight {
+            font-weight: 800;
+            color: #0f4c5f;
+            font-size: 1.25rem;
+        }
+        footer {
+            background-color: #03161f;
+            color: #cbdbe2;
+        }
+        .social-icon {
+            font-size: 1.4rem;
+            margin-right: 18px;
+            color: #b9cfdf;
+            transition: 0.2s;
+        }
+        .social-icon:hover {
+            color: var(--accent-red);
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+        .contact-item i {
+            font-size: 1.3rem;
+            width: 28px;
+            color: var(--primary);
+        }
+        hr {
+            opacity: 0.25;
+        }
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            .section-title {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR / MENU SUPERIOR -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Castrillon<span>AutoPeças</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center gap-2">
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="#inicio">Início</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="#sobre">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="#vantagens">Diferenciais</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="#contato">Contato</a></li>
+                    <li class="nav-item ms-lg-2"><a href="#contato" class="btn btn-accent btn-sm">Solicitar Orçamento</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO / INTRODUÇÃO COM FRASES E ÍCONES -->
+    <section id="inicio" class="hero-section">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6">
+                    <div class="mb-3">
+                        <span class="badge-cnpj"><i class="bi bi-building"></i> Matriz | Ativa desde 1993</span>
+                    </div>
+                    <h1 class="hero-title">Fornecimento <span>por Atacado</span><br>Peças & Acessórios Automotivos</h1>
+                    <p class="lead mt-3 text-secondary">Excelência e confiança para oficinas, revendedores e frotistas. Mais de 33 anos abastecendo o mercado automotivo com produtos originais e garantia.</p>
+                    <div class="d-flex flex-wrap gap-3 mt-4">
+                        <a href="#contato" class="btn btn-accent"><i class="bi bi-whatsapp me-1"></i> Canal do Atacado</a>
+                        <a href="#sobre" class="btn btn-outline-custom"><i class="bi bi-info-circle"></i> Conheça a empresa</a>
+                    </div>
+                    <div class="row mt-5 g-3">
+                        <div class="col-sm-6 d-flex align-items-center gap-2"><i class="bi bi-truck fs-3 text-primary-custom"></i><span class="fw-semibold">Entrega para todo MT e Brasil</span></div>
+                        <div class="col-sm-6 d-flex align-items-center gap-2"><i class="bi bi-shield-check fs-3 text-primary-custom"></i><span class="fw-semibold">Procedência e certificação</span></div>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <div class="bg-white p-4 rounded-4 shadow-sm d-inline-block">
+                        <i class="bi bi-gear-wide-connected fs-1 text-primary-custom"></i>
+                        <i class="bi bi-car-front-fill fs-1 text-primary-custom mx-3"></i>
+                        <i class="bi bi-battery-charging fs-1 text-primary-custom"></i>
+                        <p class="mt-3 fst-italic text-muted">"Peças que movem o seu negócio"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INFORMAÇÕES DA EMPRESA (DADOS CADASTRAIS + CNPJ, CAPITAL, etc) -->
+    <div class="container mt-4 mb-4">
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="info-card text-center text-md-start">
+                    <div class="icon-circle"><i class="bi bi-building"></i></div>
+                    <h5 class="fw-bold">Razão Social</h5>
+                    <p class="mb-0">Aguilera Autopecas LTDA</p>
+                    <small class="text-muted">Nome fantasia: Castrillon Autopecas</small>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="info-card text-center text-md-start">
+                    <div class="icon-circle"><i class="bi bi-qr-code"></i></div>
+                    <h5 class="fw-bold">CNPJ</h5>
+                    <p class="mb-0 font-monospace">37.525.771/0001-02</p>
+                    <small class="text-muted">Inscrição Estadual: Isento / Ativo</small>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="info-card text-center text-md-start">
+                    <div class="icon-circle"><i class="bi bi-coin"></i></div>
+                    <h5 class="fw-bold">Capital Social</h5>
+                    <p class="mb-0 fw-bold text-primary-custom">R$ 70.604.210,00</p>
+                    <small>Solidez e estrutura para o atacado</small>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="info-card text-center text-md-start">
+                    <div class="icon-circle"><i class="bi bi-calendar-check"></i></div>
+                    <h5 class="fw-bold">Abertura</h5>
+                    <p class="mb-0">08/03/1993 • 33 anos</p>
+                    <small>Mais de três décadas de tradição</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SEÇÃO SOBRE NÓS + DADOS LEGAIS -->
+    <section id="sobre" class="py-5">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <h2 class="section-title">Sólida tradição no atacado automotivo</h2>
+                    <p class="mt-3">A <strong>Castrillon Autopeças (Aguilera Autopeças LTDA)</strong> é uma empresa consolidada no coração de Cuiabá - MT, especializada em comercialização por atacado de peças e acessórios novos para veículos automotores. Com capital social superior a 70 milhões de reais e natureza jurídica de Sociedade Empresária Limitada, atuamos com total conformidade fiscal e compromisso com o crescimento dos nossos parceiros.</p>
+                    <ul class="list-unstyled mt-3">
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-accent-red me-2" style="color:#d9322e;"></i> <strong>Porte:</strong> Sem enquadramento (grande porte)</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-accent-red me-2" style="color:#d9322e;"></i> <strong>Situação cadastral:</strong> Ativa desde 24/09/2005</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-accent-red me-2" style="color:#d9322e;"></i> <strong>Opção pelo Simples/MEI:</strong> Não — regime regular</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-accent-red me-2" style="color:#d9322e;"></i> <strong>Especialidade:</strong> Peças originais, suspensão, motor, transmissão e acessórios</li>
+                    </ul>
+                    <div class="mt-4 p-3 bg-light rounded-3">
+                        <i class="bi bi-geo-alt-fill me-2"></i> <strong>Matriz:</strong> Avenida Ayrton Senna da Silva, 733 - Pascoal Ramos, Cuiabá - MT, CEP 78098-000
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+                        <div class="bg-primary-custom text-white p-4 text-center">
+                            <i class="bi bi-truck fs-1"></i>
+                            <h3 class="mt-2">Atendimento B2B</h3>
+                            <p class="mb-0">Condições especiais para revendedores, oficinas mecânicas, montadoras e frotistas. Peças de qualidade com rastreabilidade.</p>
+                        </div>
+                        <div class="p-4 bg-white">
+                            <div class="d-flex gap-3 align-items-center mb-3">
+                                <i class="bi bi-envelope-paper fs-3"></i>
+                                <div><strong>E-mail comercial</strong><br>pedromiler@castrillon.com.br</div>
+                            </div>
+                            <div class="d-flex gap-3 align-items-center">
+                                <i class="bi bi-telephone-inbound fs-3"></i>
+                                <div><strong>Centro de vendas</strong><br>(65) 3314-2200 | (65) 3314-2216 | (65) 3314-2209</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIFERENCIAIS / VANTAGENS COM ÍCONES E FRASES -->
+    <section id="vantagens" class="py-5" style="background-color: #ffffff;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title" style="display: inline-block;">Por que escolher a Castrillon?</h2>
+                <p class="mt-3 text-secondary mx-auto" style="max-width: 700px;">Mais de 33 anos impulsionando o mercado automotivo com confiança, estoque robusto e atendimento especializado.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="info-card text-center">
+                        <div class="icon-circle mx-auto"><i class="bi bi-stack"></i></div>
+                        <h4 class="fw-bold">Estoque Estratégico</h4>
+                        <p>Milhares de referências em peças novas, filtros, freios, suspensão e motores. Capacidade para atender grandes volumes.</p>
+                        <i class="bi bi-arrow-return-right"></i> <span class="small text-muted">Atacado direto</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="info-card text-center">
+                        <div class="icon-circle mx-auto"><i class="bi bi-cash-coin"></i></div>
+                        <h4 class="fw-bold">Melhor Custo-Benefício</h4>
+                        <p>Condições exclusivas para parceiros comerciais, com descontos progressivos e frete competitivo para todo Brasil.</p>
+                        <i class="bi bi-graph-up"></i> <span class="small text-muted">Margem garantida</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="info-card text-center">
+                        <div class="icon-circle mx-auto"><i class="bi bi-headset"></i></div>
+                        <h4 class="fw-bold">Suporte Técnico</h4>
+                        <p>Equipe capacitada para auxiliar na escolha da peça correta e agilidade no pós-venda. Redução de devoluções.</p>
+                        <i class="bi bi-chat-dots"></i> <span class="small text-muted">Atendimento humanizado</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-10 mx-auto">
+                    <div class="alert alert-primary border-0 bg-light rounded-4 d-flex flex-wrap justify-content-between align-items-center p-4">
+                        <span><i class="bi bi-megaphone"></i> <strong>Frases Castrillon:</strong> “Qualidade que acelera resultados” • “Seu negócio merece peças com procedência”</span>
+                        <a href="#contato" class="btn btn-sm btn-accent mt-2 mt-sm-0">Solicitar catálogo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCALIZAÇÃO + MAPA ESTILIZADO -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-5">
+                    <h2 class="section-title">Localização Estratégica</h2>
+                    <p class="mt-3">Estamos localizados na Avenida Ayrton Senna da Silva, 733, Pascoal Ramos, em Cuiabá - MT. Próximo a grandes vias de acesso, facilitando o escoamento de mercadorias e atendimento a todo o estado de Mato Grosso e regiões vizinhas.</p>
+                    <div class="mt-4 p-3 bg-white rounded-3 border">
+                        <i class="bi bi-building fs-4 me-2 text-primary-custom"></i> <strong>Endereço para correspondência:</strong><br>
+                        Castrillon Autopecas / Aguilera Autopecas LTDA<br>
+                        Avenida Ayrton Senna da Silva 733, Pascoal Ramos<br>
+                        Cuiabá - MT, 78098-000
+                    </div>
+                    <div class="mt-3 d-flex gap-3">
+                        <div><i class="bi bi-envelope"></i> pedromiler@castrillon.com.br</div>
+                        <div><i class="bi bi-telephone"></i> (65) 3314-2200</div>
+                    </div>
+                    <a href="https://maps.google.com/?q=Avenida+Ayrton+Senna+da+Silva+733+Cuiabá+MT" target="_blank" class="btn btn-outline-custom mt-4"><i class="bi bi-map"></i> Ver no Google Maps</a>
+                </div>
+                <div class="col-lg-7">
+                    <div class="rounded-4 overflow-hidden shadow-sm h-100" style="min-height: 280px; background: #e9ecef;">
+                        <iframe class="w-100 h-100" style="border:0; min-height: 280px;" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Avenida+Ayrton+Senna+da+Silva+733+Cuiabá+MT&zoom=15&language=pt-br" title="Mapa Castrillon Autopeças"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULÁRIO DE CONTATO E INFORMAÇÕES DE ATENDIMENTO -->
+    <section id="contato" class="py-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-5">
+                    <h2 class="section-title">Fale com a Central de Vendas</h2>
+                    <p class="mb-4">Atendimento especializado para compras no atacado, parcerias e suporte. Nossa equipe comercial retorna em até 2h úteis.</p>
+                    <div class="contact-item"><i class="bi bi-telephone-fill"></i> <span><strong>Telefones:</strong> (65) 3314-2200 / (65) 3314-2216 / (65) 3314-2209</span></div>
+                    <div class="contact-item"><i class="bi bi-envelope-at-fill"></i> <span><strong>E-mail principal:</strong> pedromiler@castrillon.com.br</span></div>
+                    <div class="contact-item"><i class="bi bi-whatsapp"></i> <span><strong>WhatsApp Comercial:</strong> (65) 9 9999-2200 (atendimento para atacado)</span></div>
+                    <hr>
+                    <div class="mt-3">
+                        <i class="bi bi-clock-history"></i> Horário de funcionamento: Segunda a Sexta, 8h às 18h | Sábado 8h às 12h
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="card border-0 shadow rounded-4 p-4">
+                        <h4 class="fw-bold mb-3">Solicite um orçamento</h4>
+                        <form action="#" method="post" id="formOrcamento">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label fw-semibold">Nome completo</label>
+                                    <input type="text" class="form-control" placeholder="Ex: João Silva" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label fw-semibold">CNPJ (se pessoa jurídica)</label>
+                                    <input type="text" class="form-control" placeholder="00.000.000/0001-00">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label fw-semibold">E-mail</label>
+                                    <input type="email" class="form-control" placeholder="contato@empresa.com" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label fw-semibold">Telefone</label>
+                                    <input type="tel" class="form-control" placeholder="(65) 99999-9999" required>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label class="form-label fw-semibold">Mensagem / Peças de interesse</label>
+                                    <textarea rows="3" class="form-control" placeholder="Informe sua necessidade de peças em atacado, modelo de veículo ou frota..."></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-accent w-100">Enviar mensagem <i class="bi bi-send"></i></button>
+                                    <p class="small text-muted mt-2">*Retornaremos com condições especiais para atacado e disponibilidade.</p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER COMPLETO COM INFORMAÇÕES LEGAIS, CNPJ, CAPITAL SOCIAL E REDES -->
+    <footer class="pt-5 pb-4">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-md-5">
+                    <h4 class="fw-bold text-white">Castrillon <span style="color:#e6b422;">AutoPeças</span></h4>
+                    <p class="small">Comércio por atacado de peças e acessórios novos para veículos automotivos. Tradição, segurança e capacidade de atender grandes demandas.</p>
+                    <div class="mt-2">
+                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h6 class="text-white fw-semibold">INFORMAÇÕES REGISTRO</h6>
+                    <ul class="list-unstyled small">
+                        <li><i class="bi bi-cnpj me-1"></i> CNPJ: 37.525.771/0001-02</li>
+                        <li><i class="bi bi-bank2"></i> Razão Social: Aguilera Autopecas LTDA</li>
+                        <li><i class="bi bi-calculator"></i> Capital Social: R$ 70.604.210,00</li>
+                        <li><i class="bi bi-check-circle"></i> Situação: Ativa (Data Situação 24/09/2005)</li>
+                        <li><i class="bi bi-building"></i> Natureza: Sociedade Empresária Limitada</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="text-white fw-semibold">CONTATO DIRETO</h6>
+                    <ul class="list-unstyled small">
+                        <li><i class="bi bi-telephone"></i> (65) 3314-2200 / 2216</li>
+                        <li><i class="bi bi-envelope"></i> pedromiler@castrillon.com.br</li>
+                        <li><i class="bi bi-geo-alt"></i> Av. Ayrton Senna da Silva, 733</li>
+                        <li>Pascoal Ramos - Cuiabá/MT</li>
+                        <li>CEP: 78098-000</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="mt-4 opacity-25">
+            <div class="text-center small pt-2">
+                &copy; 2026 Castrillon Autopeças - Aguilera Autopeças LTDA | Todos os direitos reservados. Desenvolvido para comércio atacadista.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Intercepta o submit do formulário apenas para demonstração (exibe alerta)
+        const form = document.getElementById('formOrcamento');
+        if(form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Sua mensagem foi enviada com sucesso! Nossa equipe de atacado retornará em breve. (simulação)');
+                form.reset();
+            });
+        }
+    </script>
+</body>
+</html>
